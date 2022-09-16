@@ -118,3 +118,17 @@ services:
     ports:
       - 7878:7878
     restart: unless-stopped
+  readarr:
+    image: lscr.io/linuxserver/readarr:develop
+    container_name: readarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+    volumes:
+      - ${READARR_CONFIG_DIR}:/config
+      - ${READARR_BOOKS_DIR}:/books #optional
+      - ${READARR_DOWNLOADS_DIR}:/downloads #optional
+    ports:
+      - 8787:8787
+    restart: unless-stopped
