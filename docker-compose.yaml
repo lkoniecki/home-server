@@ -33,3 +33,12 @@ services:
     ports:
       - 8989:8989
     restart: unless-stopped
+  homarr:
+    container_name: homarr
+    image: ghcr.io/ajnart/homarr:latest
+    restart: unless-stopped
+    volumes:
+      - ${HOMARR_CONFIGS_DIR}:/app/data/configs
+      - ${HOMARR_ICONS_DIR}:/app/public/icons
+    ports:
+      - '7575:7575'
