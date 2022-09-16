@@ -104,3 +104,17 @@ services:
     ports:
       - 9696:9696
     restart: unless-stopped
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+    volumes:
+      - ${RADARR_CONFIG_DIR}:/config
+      - ${RADARR_MOVIES_DIR}:/movies #optional
+      - ${RADARR_DOWNLOADS_DIR}:/downloads #optional
+    ports:
+      - 7878:7878
+    restart: unless-stopped
