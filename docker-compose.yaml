@@ -77,3 +77,5 @@ services:
       - ${PLEX_CONFIG_DIR}:/config
       - ${PLEX_TRANSCODE_DIR}:/transcode
       - ${PLEX_MEDIA_DIR}:/data
+    devices:
+      - "/dev/dri:/dev/dri"
