@@ -68,6 +68,8 @@ services:
       - 32413:32413/udp
       - 32414:32414/udp
     environment:
+      - PLEX_UID=1000
+      - PLEX_GID=1000
       - TZ=Europe/Warsaw
       - PLEX_CLAIM=${PLEX_CLAIM_TOKEN}
       - ADVERTISE_IP=http://${PLEX_ADVERTISE_IP}:32400/
